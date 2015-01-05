@@ -1,5 +1,3 @@
-gmsg_stat
-=========
 各脚本使用示例
 1.gmsg_create_stat.sh
 gmsg_create_stat.sh 2014-12-13 2014-12-26 #统计多天，支持日期月、日部分没有前导0

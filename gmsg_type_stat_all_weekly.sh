@@ -11,13 +11,15 @@ SCRIPT_DIR="/data1/fans_api_log/chenkai3/scripts/";
 BASE_SCRIPT=${SCRIPT_DIR}"gmsg_type_all_stat.sh";
 
 #第一步：获取起始、结束日期
-begin_date=`date +%Y-%m-%d --date "7 days ago"`;
-end_date=`date +%Y-%m-%d --date "1 days ago"`;
-#echo ${begin_date}" "${end_date};
+begin=`date +%Y-%m-%d --date "7 days ago"`;
+end_=`date +%Y-%m-%d --date "1 days ago"`;
+
+begin_date=`echo ${begin} | sed "s/-//g"`;
+end_date=`echo ${end} | sed "s/-//g"`;
 
 
 #第二步：获取该时间段内群发类型分布原始数据
-cmd_get_raw_data="/bin/sh "${BASE_SCRIPT}" "${begin_date}" "${end_date};
+cmd_get_raw_data="/bin/sh "${BASE_SCRIPT}" "${begin}" "${end};
 #echo ${cmd_get_raw_data};
 eval ${cmd_get_raw_data};
 

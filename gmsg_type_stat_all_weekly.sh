@@ -12,7 +12,7 @@ BASE_SCRIPT=${SCRIPT_DIR}"gmsg_type_all_stat.sh";
 
 #第一步：获取起始、结束日期
 begin=`date +%Y-%m-%d --date "7 days ago"`;
-end_=`date +%Y-%m-%d --date "1 days ago"`;
+end=`date +%Y-%m-%d --date "1 days ago"`;
 
 begin_date=`echo ${begin} | sed "s/-//g"`;
 end_date=`echo ${end} | sed "s/-//g"`;

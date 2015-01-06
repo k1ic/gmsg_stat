@@ -10,6 +10,10 @@ WEEKLY_LOG_DIR=${RES_LOG_DIR}"weekly/";
 SCRIPT_DIR="/data1/fans_api_log/chenkai3/scripts/";
 BASE_SCRIPT=${SCRIPT_DIR}"gmsg_type_all_stat.sh";
 
+#第零步：切换至工作目录
+cd ${WEEKLY_LOG_DIR};
+
+
 #第一步：获取起始、结束日期
 begin=`date +%Y-%m-%d --date "7 days ago"`;
 end=`date +%Y-%m-%d --date "1 days ago"`;
@@ -66,20 +70,25 @@ done;
 #补全空字段
 if [ "${text}" == "" ]                          
 then                                               
-    text=0;                                 
-elif [ "${image}" == "" ]                       
+    text=0;                                
+fi;
+if [ "${image}" == "" ]                       
 then                                               
     image=0;
-elif [ "${voice}" == "" ]                       
-then                                               
+fi;
+if [ "${voice}" == "" ]                       
+then 
     voice=0;
-elif [ "${articles}" == "" ]                    
+fi;
+if [ "${articles}" == "" ]                    
 then                                               
     articles=0;
-elif [ "${music}" == "" ]                       
-then                                               
+fi;
+if [ "${music}" == "" ]                       
+then 
     music=0;
 fi;
+
 
 total=`echo ${text}"+"${image}"+"${voice}"+"${articles}"+"${music}|bc`;
 

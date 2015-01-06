@@ -24,3 +24,9 @@ gmsg_type_h5_stat.sh 2014-02-01 2014-02-08 #统计多天，支持日期月、日
 
 7.gmsg_type_stat_all_weekly.sh
 直接执行，无需参数
+
+8.gmsg_type_stat_pc_weekly.sh
+直接执行，无需参数
+
+9.gmsg_type_stat_h5_weekly.sh
+直接执行，无需参数

@@ -4,7 +4,8 @@
 #日期：2015/01/08
 
 #引入公用模块
-source ./get_log_dates.sh
+SCRIPT_DIR="/data1/fans_api_log/chenkai3/scripts/";
+source ${SCRIPT_DIR}get_log_dates.sh
 
 
 LOG_DIR="/data3/logs/prof/publicplatform";
@@ -117,12 +118,12 @@ area_usage_rate=`usage_rate_calculate ${ripe_area_name}`;
 
 #第六步：输出统计结果
 #表头
-th="time_range,group_usage,gender_usage,area_usage";
+#th="time_range,group_usage,gender_usage,area_usage";
 
 #数据行
 begin_date=`echo ${dates_arr[0]} | sed "s/-//g"`;
 end_date=`echo ${dates_arr[${#dates_arr[@]}-1]} | sed "s/-//g"`;
 tr=${begin_date}"-"${end_date}","${group_usage_rate}","${gender_usage_rate}","${area_usage_rate};
 
-echo -e ${th}"\n"${tr};
+echo ${tr};
 exit;

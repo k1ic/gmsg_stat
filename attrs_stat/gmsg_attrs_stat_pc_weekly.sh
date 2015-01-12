@@ -30,7 +30,7 @@ res_data=`eval ${cmd_get_usage_data}`;
 
 
 #第三步：最终结果写入文件
-res_data_file=${WEEKLY_LOG_DIR}${begin_date}"-"${end_date}"_gmsg_attrs_stat_pc.csv";
+res_data_file=${WEEKLY_LOG_DIR}${begin_date}"-"${end_date}"_7day_gmsg_attrs_stat_pc.csv";
 
 #表头
 th="time_range,group_usage,gender_usage,area_usage";

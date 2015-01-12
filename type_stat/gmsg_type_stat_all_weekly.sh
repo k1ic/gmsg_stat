@@ -32,7 +32,7 @@ raw_data_file=${WEEKLY_LOG_DIR}${begin_date}"-"${end_date}"_uniq_sorted_msg_type
 
 
 #第三步：生成最终结果
-res_data_file=${WEEKLY_LOG_DIR}${begin_date}"-"${end_date}"_gmsg_type_stat_all.csv";
+res_data_file=${WEEKLY_LOG_DIR}${begin_date}"-"${end_date}"_7day_gmsg_type_stat_all.csv";
 #echo ${res_data_file};
 
 raw_data_str=`cat ${raw_data_file} | sed "s/\"//g" | awk -F " " '{ print $2":"$1 }'`;

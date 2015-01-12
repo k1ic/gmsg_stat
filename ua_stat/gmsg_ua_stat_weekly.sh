@@ -91,6 +91,10 @@ seven_day_file_name=${dates_arr[0]}"-"${dates_arr[${#dates_arr[@]}-1]}"_7day_ua_
 res_des_file_name=${WEEKLY_LOG_DIR}${seven_day_file_name};
 #echo ${res_des_file_name};
 
+#表头
+th="time_range,pc,h5,all";
+echo ${th} > ${res_des_file_name};
+
 #将字符串内的逗号替换为空格
 files_str=${res_file_list//,/ };
 
@@ -117,7 +121,7 @@ do
     
     total_all=`echo ${total_pc}"+"${total_h5}|bc`;
 
-    single_line_content=${date}" "${total_pc}" "${total_h5}" "${total_all};
+    single_line_content=${date}","${total_pc}","${total_h5}","${total_all};
     #echo ${single_line_content};
     
     eval "echo "${single_line_content}" >> "${res_des_file_name};

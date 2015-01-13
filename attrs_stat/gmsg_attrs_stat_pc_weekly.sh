@@ -4,6 +4,10 @@
 #日期：2015/01/11
 #对应crontab：10 4 * * 1 gmsg_attrs_stat_pc_weekly.sh
 
+#引入公用模块
+SCRIPT_DIR="/data1/fans_api_log/chenkai3/scripts/";
+source ${SCRIPT_DIR}error_exit.sh
+
 RES_LOG_DIR="/data1/fans_api_log/chenkai3/gmsg_attrs_stat/res_log/pc/";
 WEEKLY_LOG_DIR=${RES_LOG_DIR}"weekly/";
 
@@ -11,7 +15,7 @@ SCRIPT_DIR="/data1/fans_api_log/chenkai3/scripts/";
 BASE_SCRIPT=${SCRIPT_DIR}"gmsg_attrs_stat_pc.sh";
 
 #第零步：切换至工作目录
-cd ${WEEKLY_LOG_DIR}; #TODO:增加异常处理
+cd ${WEEKLY_LOG_DIR} || error_exit "change directory failed";
 
 
 #第一步：获取起始、结束日期

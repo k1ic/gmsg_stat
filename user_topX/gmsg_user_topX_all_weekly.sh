@@ -27,19 +27,20 @@ res_log_pre=${begin_date}"-"${end_date};
 
 #第二步：获取该时间段内群发用户topN及次数原始数据
 raw_data_log_name=${res_log_pre}"_raw.log";
-cmd_get_raw_data="/bin/sh "${BASE_SCRIPT}" "${begin}" "${end}" "${topN}" > "${raw_data_log_name};
+cmd_get_raw_data="/bin/sh "${BASE_SCRIPT}" "${begin}" "${end}" "${TOPX}" > "${raw_data_log_name};
 #echo ${cmd_get_raw_data};
 eval ${cmd_get_raw_data};
 
 
 #第三步：生成群发用户topN csv文件
 uid_topX_log_name=${res_log_pre}"_gmsg_user_top"${TOPX}".csv";
+#echo ${uid_topX_log_name};
 
 #表头
 th="uid,count";
-echo ${th}" > "${uid_topX_log_name};
+echo ${th} > ${uid_topX_log_name};
 
 #数据行
-cat ${cmd_get_raw_data} | awk -F " " '{ print $1","$2; }' >> "${uid_topX_log_name};
+cat ${raw_data_log_name} | awk -F " " '{ print $1","$2; }' >> ${uid_topX_log_name};
 
 exit;

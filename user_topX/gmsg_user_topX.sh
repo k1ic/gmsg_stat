@@ -51,11 +51,11 @@ res_log_pre=${dates_arr[0]//-/}"-"${dates_arr[${#dates_arr[@]}-1]//-/};
 raw_log_name=${res_log_pre}"_push_msg_create_raw.log";
 cmd_get_raw_data="cat "${log_file_names}" | grep push/message/create | grep FS_INFO_API | grep -v \"^$\" > "${raw_log_name};
 #echo ${cmd_get_raw_data};
-eval ${cmd_get_raw_data};
+#eval ${cmd_get_raw_data};
 
 
 #第四步：获取调用接口uid topX及次数
-cmd_get_uid_topX="cat "${raw_log_name}" | awk -F \"|\" '{ print \$4 }' | uniq -c | sort -n | head -"${TOPX_VALUE}" | awk '{ print \$2\" \"\$1 }'";
+cmd_get_uid_topX="cat "${raw_log_name}" | awk -F \"|\" '{ print \$4 }' | sort -nr | uniq -c | sort -nr | awk -F \" \" '{ print \$2\" \"\$1 }' |  head -"${TOPX_VALUE};
 #echo ${cmd_get_uid_topX};
 eval ${cmd_get_uid_topX};
 

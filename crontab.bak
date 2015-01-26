@@ -13,3 +13,6 @@
 
 #Add by chenkai3 at 20150123 for gmsg user topX
 10 5 * * 1 /data1/fans_api_log/chenkai3/scripts/gmsg_user_topX_all_weekly.sh > /dev/null
+
+#Add by chenkai3 at 20150126 for gmsg stat res download
+10 6 * * 1 /data1/fans_api_log/chenkai3/scripts/gmsg_stat_res_download_weekly.sh > /dev/null

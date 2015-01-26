@@ -10,3 +10,6 @@
 
 #Add by chenkai3 at 20150111 for gmsg attrs statistics
 10 4 * * 1 /data1/fans_api_log/chenkai3/scripts/gmsg_attrs_stat_pc_weekly.sh > /dev/null
+
+#Add by chenkai3 at 20150123 for gmsg user topX
+10 5 * * 1 /data1/fans_api_log/chenkai3/scripts/gmsg_user_topX_all_weekly.sh > /dev/null

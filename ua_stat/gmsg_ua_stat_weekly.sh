@@ -87,7 +87,7 @@ res_file_list=`get_data_file_list "${dates_arr[@]}"`;
 
 #第三步：读取上一步生成的文件列表中的内容，并放入目标文件中
 
-seven_day_file_name=${dates_arr[0]}"-"${dates_arr[${#dates_arr[@]}-1]}"_7day_ua_distr.log";
+seven_day_file_name=${dates_arr[0]}"-"${dates_arr[${#dates_arr[@]}-1]}"_7day_ua_distr.csv";
 res_des_file_name=${WEEKLY_LOG_DIR}${seven_day_file_name};
 #echo ${res_des_file_name};
 

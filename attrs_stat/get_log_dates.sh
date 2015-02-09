@@ -11,7 +11,7 @@ function get_log_dates() {
     # 接收入参，起始、结束日期字符串，如：2014-11-23
     s_date=$1;
     e_date=$2;
- 
+
     # 字符串分割为数组，分割符“-”
     s_date_info=(${s_date//-/ });
     e_date_info=(${e_date//-/ });
@@ -34,7 +34,7 @@ function get_log_dates() {
     if [ ${s_month} -lt ${e_month} ] #waring： “[”和变量之间要有空格
     then
         #echo "<";
-        for((i=${s_month}; i<=${e_month}; ++i));
+        for((i=(10#${s_month}); i<=(10#${e_month}); ++i));
         do
             # 每月最后一天
             last_day_of_month=`cal $i ${s_year} | grep -v "^$" | tail -n 1 | awk '{print $NF}'`; 
@@ -43,7 +43,7 @@ function get_log_dates() {
             # 如果是起始月份
             if [ $i -eq ${s_month} ]
             then
-                for((j=${s_day}; j<=${last_day_of_month}; ++j));
+                for((j=(10#${s_day}); j<=(10#${last_day_of_month}); ++j));
                 do
                     #格式化日期，月、日增加前导0
                     date=`date -d "${s_year}-${s_month}-$j" "+%Y-%m-%d";`
@@ -53,7 +53,7 @@ function get_log_dates() {
             # 如果是中间月份
             elif test $i -gt ${s_month} -a $i -lt ${e_month} 
             then
-                for((j=1; j<=${last_day_of_month}; ++j));
+                for((j=1; j<=(10#${last_day_of_month}); ++j));
                 do
                     date=`date -d "${e_year}-$i-$j" "+%Y-%m-%d";`
                     res_dates=( "${res_dates[@]}" ${date} );
@@ -62,7 +62,7 @@ function get_log_dates() {
             # 如果是结束月份
             elif [ $i -eq ${e_month} ]
             then
-                for((j=1; j<=${e_day}; ++j));
+                for((j=1; j<=(10#${e_day}); ++j));
                 do
                     date=`date -d "${e_year}-${e_month}-$j" "+%Y-%m-%d";`
                     res_dates=( "${res_dates[@]}" ${date} );
@@ -72,7 +72,7 @@ function get_log_dates() {
     elif [ ${s_month} -eq ${e_month} ]
     then
         #echo "=";
-        for((j=${s_day}; j<=${e_day}; ++j));
+        for((j=(10#${s_day}); j<=(10#${e_day}); ++j)); #force the base-10 interpretation
         do
             date=`date -d "${s_year}-${s_month}-$j" "+%Y-%m-%d";`
             res_dates=( "${res_dates[@]}" ${date} );
